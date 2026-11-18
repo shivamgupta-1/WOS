@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URI")
+}
+
+model Application {
+  id          String @id @default(uuid())
+  name        String
+  url         String
+  teamslink   String
+  email       String
+  description String
+  failureThreshold Int @default(2)
+  awsInstanceId String?
+
+  domainId    String
+  domain      Domain @relation(fields: [domainId], references: [id])
+
+  healthChecks ApplicationHealth?
+  incidents ApplicationIncident[]
+}
+
+model Domain {
+  id           String @id @default(uuid())
+  domainName   String
+
+  applications Application[]
+}
+
+model ApplicationHealth {
+  id          String @id @default(uuid())
+  applicationId String @unique
+  responseTime  Int?
+  statusCode    Int?
+  status        String
+  consecutiveFailures Int @default(0)
+  lastUpdated   DateTime @updatedAt
+
+  application Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
+
+
+model ApplicationIncident{
+  id String @id @default(uuid())
+  applicationId String
+  status String @default("DOWN")
+  startAt DateTime @default(now())
+  endAt DateTime?
+  errorMessage String?
+
+  application Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@index([applicationId, startAt])
+}
