@@ -44,11 +44,10 @@ export const runHealthChecks = async () => {
     }),
   );
 
-  const snapshots = await Promise.all(
-    healthResults.map(({ application, result }) =>
-      saveHealthResult(application, result),
-    ),
-  );
+  const snapshots = [];
+  for (const { application, result } of healthResults) {
+    snapshots.push(await saveHealthResult(application, result));
+  }
 
   return snapshots;
 };

@@ -1,208 +1,139 @@
-/* =====================================================
-   Design Tokens – Consolidated
-   Covers ALL common React UI components
-   ===================================================== */
-
 :root {
-  /* -------------------------------
-     Brand & Semantic Colors
-  -------------------------------- */
-  --color-primary: #4f46e5;
-  --color-primary-hover: #4338ca;
-  --color-primary-active: #3730a3;
+  color-scheme: light;
 
-  --color-secondary: #06b6d4;
+  --neutral-50: #fafafa; --neutral-100: #f4f4f5; --neutral-200: #e4e4e7;
+  --neutral-300: #d4d4d8; --neutral-400: #a1a1aa; --neutral-500: #71717a;
+  --neutral-600: #52525b; --neutral-700: #3f3f46; --neutral-800: #27272a;
+  --neutral-900: #18181b; --neutral-950: #09090b;
 
-  --color-success: #22c55e;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  --color-info: #3b82f6;
+  --brand-50: #f4f7f8; --brand-100: #e6edf0; --brand-200: #cddbe0;
+  --brand-300: #a9c1ca; --brand-400: #7e9eaa; --brand-500: #5c7e8d;
+  --brand-600: #456575; --brand-700: #385361; --brand-800: #304650;
+  --brand-900: #293b43; --brand-950: #17272e;
 
-  /* -------------------------------
-     Neutral Palette
-  -------------------------------- */
-  --color-white: #ffffff;
-  --color-black: #000000;
+  --color-page: var(--neutral-50);
+  --color-surface: #ffffff;
+  --color-surface-muted: var(--neutral-100);
+  --color-surface-hover: #ededf0;
+  --color-text-primary: var(--neutral-900);
+  --color-text-secondary: var(--neutral-600);
+  --color-text-tertiary: var(--neutral-600);
+  --color-border: var(--neutral-200);
+  --color-border-strong: var(--neutral-300);
+  --color-accent-600: var(--brand-600);
+  --color-accent-700: var(--brand-700);
+  --color-accent-800: var(--brand-800);
+  --color-accent-subtle: var(--brand-50);
+  --color-accent-text: var(--brand-700);
+  --color-accent-text-strong: var(--brand-800);
+  --color-accent-contrast: #ffffff;
+  --color-action: var(--brand-600);
+  --color-action-hover: var(--brand-700);
+  --color-focus: var(--brand-600);
 
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
+  --color-success-bg: #f0fdf4; --color-success-border: #86efac; --color-success-text: #166534;
+  --color-warning-bg: #fffbeb; --color-warning-border: #fcd34d; --color-warning-text: #854d0e;
+  --color-danger-bg: #fef2f2; --color-danger-border: #fca5a5; --color-danger-text: #991b1b;
+  --color-info-bg: #eff6ff; --color-info-border: #93c5fd; --color-info-text: #1e40af;
 
-  /* -------------------------------
-     Text Colors
-  -------------------------------- */
-  --text-primary: var(--color-gray-900);
-  --text-secondary: var(--color-gray-600);
-  --text-muted: var(--color-gray-400);
-  --text-inverse: var(--color-white);
+  --status-operational-bg: var(--color-success-bg);
+  --status-operational-border: var(--color-success-border);
+  --status-operational-text: var(--color-success-text);
+  --status-degraded-bg: var(--color-warning-bg);
+  --status-degraded-border: var(--color-warning-border);
+  --status-degraded-text: var(--color-warning-text);
+  --status-outage-bg: var(--color-danger-bg);
+  --status-outage-border: var(--color-danger-border);
+  --status-outage-text: var(--color-danger-text);
+  --status-maintenance-bg: var(--color-info-bg);
+  --status-maintenance-border: var(--color-info-border);
+  --status-maintenance-text: var(--color-info-text);
+  --status-unknown-bg: var(--neutral-100);
+  --status-unknown-border: var(--neutral-300);
+  --status-unknown-text: var(--neutral-600);
 
-  /* -------------------------------
-     Backgrounds
-  -------------------------------- */
-  --bg-page: var(--color-gray-50);
-  --bg-surface: var(--color-white);
-  --bg-muted: var(--color-gray-100);
-  /* --bg-hover: var(--color-gray-100); */
-  --bg-selected: var(--color-gray-200);
+  --font-family-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-size-12: 0.75rem; --font-size-13: 0.8125rem; --font-size-14: 0.875rem;
+  --font-size-16: 1rem; --font-size-20: 1.25rem; --font-size-24: 1.5rem; --font-size-30: 1.875rem;
+  --font-weight-regular: 400; --font-weight-medium: 500; --font-weight-semibold: 600;
+  --line-height-tight: 1.25; --line-height-normal: 1.5; --line-height-relaxed: 1.5;
 
-  /* -------------------------------
-     Borders
-  -------------------------------- */
-  --border-color: var(--color-gray-200);
-  --border-color-hover: var(--color-gray-300);
-  --border-color-focus: var(--color-primary);
+  --space-0: 0; --space-1: 4px; --space-2: 8px; --space-3: 12px;
+  --space-4: 16px; --space-5: 20px; --space-6: 24px; --space-7: 28px;
+  --space-8: 32px; --space-9: 36px; --space-10: 40px; --space-12: 48px;
+  --space-16: 64px; --space-24: 96px;
 
-  --border-width-sm: 1px;
-  --border-width-md: 2px;
+  --radius-none: 0; --radius-sm: 4px; --radius-md: 6px; --radius-lg: 8px;
+  --radius-xl: var(--radius-lg); --radius-full: var(--radius-md);
+  --shadow-sm: 0 1px 2px rgb(24 24 27 / 6%);
+  --shadow-md: 0 2px 6px rgb(24 24 27 / 8%);
+  --shadow-xs: var(--shadow-sm); --shadow-lg: var(--shadow-md); --shadow-xl: var(--shadow-md);
 
-  /* -------------------------------
-     Typography
-  -------------------------------- */
-  --font-family-sans: system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas;
-
-  --font-size-xs: 0.75rem;   /* 12px */
-  --font-size-sm: 0.875rem;  /* 14px */
-  --font-size-md: 1rem;      /* 16px */
-  --font-size-lg: 1.125rem;  /* 18px */
-  --font-size-xl: 1.25rem;   /* 20px */
-  --font-size-2xl: 1.5rem;   /* 24px */
-
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-
-  --line-height-tight: 1.25;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.75;
-
-  /* -------------------------------
-     Spacing (used everywhere)
-  -------------------------------- */
-  --space-0: 0;
-  --space-1: 0.25rem;  /* 4px */
-  --space-2: 0.5rem;   /* 8px */
-  --space-3: 0.75rem;  /* 12px */
-  --space-4: 1rem;     /* 16px */
-  --space-5: 1.25rem;  /* 20px */
-  --space-6: 1.5rem;   /* 24px */
-  --space-8: 2rem;     /* 32px */
-  --space-10: 2.5rem;  /* 40px */
-  --space-12: 3rem;    /* 48px */
-
-  /* -------------------------------
-     Component Sizes
-  -------------------------------- */
-  --control-height-sm: 32px;
-  --control-height-md: 40px;
-  --control-height-lg: 48px;
-
-  /* -------------------------------
-     Border Radius
-  -------------------------------- */
-  --radius-none: 0;
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-full: 9999px;
-
-  /* -------------------------------
-     Elevation / Shadows
-  -------------------------------- */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
-
-  /* -------------------------------
-     Z-Index (Overlay System)
-  -------------------------------- */
-  --z-base: 0;
-  --z-dropdown: 1000;
-  --z-sticky: 1020;
-  --z-fixed: 1030;
-  --z-modal-backdrop: 1040;
-  --z-modal: 1050;
-  --z-tooltip: 1100;
-  --z-toast: 1200;
-
-  /* -------------------------------
-     Overlays
-  -------------------------------- */
-  --overlay-backdrop: rgba(0, 0, 0, 0.5);
-
-  /* -------------------------------
-     States
-  -------------------------------- */
-  --opacity-disabled: 0.5;
-  --cursor-disabled: not-allowed;
-
-  /* -------------------------------
-     Transitions & Motion
-  -------------------------------- */
-  --transition-fast: 150ms ease-in-out;
-  --transition-normal: 250ms ease-in-out;
-  --transition-slow: 400ms ease-in-out;
-
-  /* -------------------------------
-     Focus
-  -------------------------------- */
-  --focus-ring: 0 0 0 3px rgba(79, 70, 229, 0.35);
-
-  --stroke-width-sm: 1;
-  --stroke-width-md: 2;
-  --stroke-width-lg: 3;
-
-  /* -------------------------------
-     Accordion
-  -------------------------------- */
+  --control-height-sm: 32px; --control-height-md: 36px; --control-height-lg: 40px;
+  --border-width-sm: 1px; --border-width-md: 2px;
+  --overlay-backdrop: rgb(9 9 11 / 48%);
+  --focus-ring: 0 0 0 2px rgb(69 101 117 / 28%);
+  --transition-fast: 140ms ease-out; --transition-normal: 180ms ease-out; --transition-slow: 180ms ease-out;
   --accordion-max-height: 500px;
+  --opacity-disabled: 0.5; --cursor-disabled: not-allowed;
+  --z-base: 0; --z-dropdown: 1000; --z-sticky: 1020; --z-fixed: 1030;
+  --z-modal-backdrop: 1040; --z-modal: 1050; --z-tooltip: 1100; --z-toast: 1200;
 
-  /* -------------------------------
-     AutoComplete
-  -------------------------------- */
-  --autocomplete-max-height: 300px;
+  /* Compatibility aliases for existing components during the staged redesign. */
+  --color-white: #ffffff; --color-black: #000000;
+  --color-gray-50: var(--neutral-50); --color-gray-100: var(--neutral-100);
+  --color-gray-200: var(--neutral-200); --color-gray-300: var(--neutral-300);
+  --color-gray-400: var(--neutral-400); --color-gray-500: var(--neutral-500);
+  --color-gray-600: var(--neutral-600); --color-gray-700: var(--neutral-700);
+  --color-gray-800: var(--neutral-800); --color-gray-900: var(--neutral-900);
+  --color-gray-950: var(--neutral-950);
+  --color-primary: var(--brand-600); --color-primary-hover: var(--brand-700);
+  --color-primary-active: var(--brand-800); --color-primary-dark: var(--brand-800);
+  --color-primary-light: var(--brand-100);
+  --color-secondary: var(--color-info-text); --color-secondary-hover: #1e3a8a;
+  --color-secondary-dark: #1e3a8a; --color-secondary-light: var(--color-info-bg);
+  --color-success: var(--color-success-text); --color-success-dark: #14532d;
+  --color-success-light: var(--color-success-bg);
+  --color-warning: var(--color-warning-text); --color-warning-dark: #713f12;
+  --color-warning-light: var(--color-warning-bg);
+  --color-error: var(--color-danger-text); --color-error-dark: #7f1d1d;
+  --color-error-light: var(--color-danger-bg);
+  --color-info: var(--color-info-text); --color-info-dark: #1e3a8a;
+  --color-info-light: var(--color-info-bg);
+  --text-primary: var(--color-text-primary); --text-secondary: var(--color-text-secondary);
+  --text-muted: var(--color-text-tertiary); --text-inverse: #ffffff;
+  --bg-page: var(--color-page); --bg-surface: var(--color-surface);
+  --bg-muted: var(--color-surface-muted); --bg-hover: var(--color-surface-hover);
+  --bg-selected: var(--brand-100);
+  --border-color: var(--color-border); --border-color-hover: var(--color-border-strong);
+  --border-color-focus: var(--color-focus);
+  --font-size-xs: var(--font-size-12); --font-size-sm: var(--font-size-14);
+  --font-size-md: var(--font-size-14); --font-size-lg: var(--font-size-16);
+  --font-size-xl: var(--font-size-20); --font-size-2xl: var(--font-size-24);
+  --font-weight-bold: var(--font-weight-semibold);
 }
 
-/* Dark theme overrides - apply by adding `theme-dark` class to <html> or <body> */
-.theme-dark {
-   --text-primary: #e6eef8;
-   --text-secondary: #9fb6ce;
-   --text-muted: #7f93a3;
-   --text-inverse: var(--color-black);
-
-   --bg-page: #0b1220;      /* deep page background */
-   --bg-surface: #0f1724;   /* cards, panels */
-   --bg-muted: #0b1420;     /* subtle surfaces */
-   --bg-hover: #111828;     /* hover states */
-   --bg-selected: #102235;  /* selected row */
-
-   --border-color: #172033; /* subtle dark border */
-   --border-color-hover: #22303b;
-   --border-color-focus: #2563eb; /* blue focus */
-
-   --color-primary: #60a5fa;       /* calm blue accent */
-   --color-primary-hover: #3b82f6;
-   --color-primary-active: #2563eb;
-
-   --shadow-sm: 0 1px 3px rgba(2,6,23,0.6);
-   --shadow-md: 0 6px 12px rgba(2,6,23,0.7);
-
-   --overlay-backdrop: rgba(2,6,23,0.6);
-}
-
-/* Light theme class (optional explicit class) */
-.theme-light {
-   /* no-op; defaults from :root are used */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-page: var(--neutral-950); --color-surface: var(--neutral-900);
+  --color-surface-muted: var(--neutral-800); --color-surface-hover: var(--neutral-700);
+  --color-text-primary: var(--neutral-50); --color-text-secondary: var(--neutral-200);
+  --color-text-tertiary: var(--neutral-300);
+  --color-border: var(--neutral-700); --color-border-strong: var(--neutral-600);
+  --color-accent-600: #a9c1ca; --color-accent-700: #cddbe0; --color-accent-800: #e6edf0;
+  --color-accent-subtle: var(--brand-950);
+  --color-accent-text: #a9c1ca; --color-accent-text-strong: #cddbe0;
+  --color-accent-contrast: var(--neutral-950);
+  --color-focus: #a9c1ca;
+  --color-success-bg: #142d20; --color-success-border: #24633e; --color-success-text: #86efac;
+  --color-warning-bg: #38290f; --color-warning-border: #78551a; --color-warning-text: #fcd34d;
+  --color-danger-bg: #3b1e22; --color-danger-border: #7c343b; --color-danger-text: #fca5a5;
+  --color-info-bg: #1c2b42; --color-info-border: #365b8c; --color-info-text: #93c5fd;
+  --status-unknown-bg: var(--neutral-800); --status-unknown-border: var(--neutral-600);
+  --status-unknown-text: var(--neutral-200);
+  --bg-selected: var(--brand-950);
+  --overlay-backdrop: rgb(0 0 0 / 64%);
+  --focus-ring: 0 0 0 2px rgb(169 193 202 / 32%);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 24%); --shadow-md: 0 2px 6px rgb(0 0 0 / 28%);
 }

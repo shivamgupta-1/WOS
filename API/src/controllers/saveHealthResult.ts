@@ -103,7 +103,7 @@ const persistHealthResult = async (
     }
 
     return { health, incidentStarted };
-  });
+  }, { maxWait: 10_000 });
 
   if (incidentStarted) {
     void sendTeamAlert(application, {

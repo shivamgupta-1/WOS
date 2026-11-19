@@ -2,7 +2,7 @@ import type { ApiIncidentPeriod } from '../../types/domain';
 
 export type HistoryDays = 1 | 7 | 30;
 
-type HistoryBar = {
+export type HistoryBar = {
   date: string;
   status: 'healthy' | 'down' | 'unknown';
 };

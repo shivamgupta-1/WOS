@@ -55,8 +55,7 @@ react-hub/
 │   │   ├── validationsService.ts
 │   │   └── ...
 │   ├── config/              # Configuration files (e.g., login.json)
-│   ├── styles/              # Global styles and design tokens
-│   │   ├── index.css
+│   ├── styles/              # Design tokens
 │   │   └── tokens.css
 │   ├── test/                # Test setup and utilities
 │   ├── assets/              # Static assets (images, fonts, etc.)
@@ -77,7 +76,7 @@ react-hub/
 ├── public/                  # Static files served as-is
 ├── eslint.config.js         # ESLint configuration
 ├── .prettierrc.json         # Prettier code formatting rules
-├── tailwind.config.js       # Tailwind CSS customization
+├── tailwind.config.ts       # Tailwind CSS customization
 ├── tsconfig.json            # TypeScript configuration
 ├── tsconfig.app.json        # TypeScript app-specific config
 ├── tsconfig.node.json       # TypeScript Node config
@@ -94,39 +93,21 @@ react-hub/
 
 Tailwind CSS v4 is pre-configured with PostCSS for optimal styling:
 
-1. **Tailwind directives** in `src/styles/index.css`:
+1. **Tailwind entry point** in `src/index.css`:
 
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "./styles/tokens.css";
+@config "../tailwind.config.ts";
 ```
 
 2. **Import styles** in `src/main.tsx`:
 
 ```typescript
-import './styles/index.css';
+import './index.css';
 ```
 
-3. **Customize design tokens** in `tailwind.config.js`:
-
-```javascript
-export default {
-  theme: {
-    extend: {
-      colors: {
-        // Custom color palette
-      },
-      spacing: {
-        // Custom spacing scale
-      },
-      fontSize: {
-        // Custom font sizes
-      },
-    },
-  },
-};
-```
+3. **Customize design tokens** in `tailwind.config.ts`; visual tokens are documented in `DESIGN_SYSTEM.md`.
 
 **Design Tokens**: Global design tokens are stored in `src/styles/tokens.css` for consistent theming.
 
